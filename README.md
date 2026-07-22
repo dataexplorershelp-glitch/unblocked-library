@@ -1,2 +1,2 @@
 # unblocked-library
-Unblocked School stuff.
+Contains the games/index to (https://dataexplorershelp-glitch.github.io/unblocked-library/) 
