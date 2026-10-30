@@ -680,6 +680,39 @@
   @media (max-width: 560px){
     .brand .name{ display:none; }
   }
+
+  /* ---------- custom cursor: tan & black ---------- */
+  *{ cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 3v21l5.6-5 3.9 8.6 3.6-1.7-3.9-8.4H22z' fill='%23d2b48c' stroke='%23111' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 5 3, auto; }
+  a, button, [role="button"], label, summary,
+  .drawer, .chip, .stamp-btn, .card-btn, .menu-btn, .to-top, .ghost-btn, .searchbox .clear{
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 3v21l5.6-5 3.9 8.6 3.6-1.7-3.9-8.4H22z' fill='%23111' stroke='%23d2b48c' stroke-width='2' stroke-linejoin='round'/%3E%3Ccircle cx='9' cy='9' r='1.6' fill='%23d2b48c'/%3E%3C/svg%3E") 5 3, pointer;
+  }
+  button:disabled, .card-btn:disabled{ cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 3v21l5.6-5 3.9 8.6 3.6-1.7-3.9-8.4H22z' fill='%23d2b48c' stroke='%23111' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E") 5 3, default; }
+  input, textarea, [contenteditable]{ cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M11 5h10M16 5v22M11 27h10' stroke='%23111' stroke-width='5' stroke-linecap='round' fill='none'/%3E%3Cpath d='M11 5h10M16 5v22M11 27h10' stroke='%23d2b48c' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 16 16, text; }
+
+  /* trailing ring + click ripple (fine pointers only; added by script) */
+  .cursor-ring{
+    position:fixed; left:0; top:0; z-index:1000; width:0; height:0;
+    pointer-events:none; opacity:0; transition: opacity .25s ease; will-change: transform;
+  }
+  .cursor-ring.on{ opacity:1; }
+  .cursor-ring.on.is-text{ opacity:0; }
+  .cursor-ring i{
+    position:absolute; left:-17px; top:-17px; width:34px; height:34px; border-radius:50%;
+    border:2px solid #d2b48c;
+    box-shadow: 0 0 0 1px rgba(17,17,17,0.9), inset 0 0 0 1px rgba(17,17,17,0.9);
+    transition: transform .35s var(--ease), background .25s ease;
+  }
+  .cursor-ring.is-link i{ transform: scale(1.55); background: rgba(210,180,140,0.16); }
+  .cursor-ring.is-down i{ transform: scale(.7); }
+  .cursor-ring.is-link.is-down i{ transform: scale(1.2); }
+  .cursor-ripple{
+    position:fixed; z-index:999; width:20px; height:20px; margin:-10px 0 0 -10px; border-radius:50%;
+    border:2px solid #d2b48c; pointer-events:none;
+    box-shadow: 0 0 0 1px #111, inset 0 0 0 1px #111;
+    animation: cursorRipple .6s ease-out forwards;
+  }
+  @keyframes cursorRipple{ from{ transform: scale(.3); opacity:.9; } to{ transform: scale(3.2); opacity:0; } }
 </style>
 <noscript><style>.reveal{ opacity:1 !important; transform:none !important; } .searchbox,.menu-btn,.toolbar{ display:none !important; } .drawer .card-face{ position:static; opacity:1; transform:none; margin-top:1rem; }</style></noscript>
 </head>
@@ -722,7 +755,7 @@
 
   <section class="catalog" id="stacks">
     <div class="section-head reveal">
-      <span class="eyebrow">Card Catalog &middot; 72 Titles</span>
+      <span class="eyebrow">Card Catalog &middot; 73 Titles</span>
       <h2>New Acquisitions</h2>
       <p>Every title in the collection, shelved by genre. Search above or filter by shelf, then hover or tap a drawer to pull out its index card.</p>
     </div>
@@ -1273,7 +1306,7 @@
       <div class="shelf-group-head reveal">
         <span class="code">300</span>
         <h3>Rhythm &amp; Music</h3>
-        <span class="count">7 titles</span>
+        <span class="count">8 titles</span>
       </div>
       <div class="drawers">
 
@@ -1358,6 +1391,18 @@
             <span class="genre">Rhythm / Mod</span>
             <p>A Friday Night Funkin' mod pitting you against Shucks in a rap battle, with arrow-note charts that test your timing.</p>
             <a href="fnf-vs-shucks-v2.html" target="_blank" rel="noopener">Check it out &rarr;</a>
+          </div>
+        </div>
+
+        <div class="drawer reveal">
+          <div class="handle"></div>
+          <span class="label">Rhythm &middot; Click Circles</span>
+          <h3>osu!</h3>
+          <p class="call-no">300.08 &middot; click to the beat</p>
+          <div class="card-face">
+            <span class="genre">Rhythm / Precision</span>
+            <p>The legendary rhythm game: click circles, follow sliders, and spin spinners in time with the music. Accuracy and speed decide your score.</p>
+            <a href="osu.html" target="_blank" rel="noopener">Check it out &rarr;</a>
           </div>
         </div>
 
@@ -1694,7 +1739,7 @@
       <p>Unblocked Library started as a place to stop losing track of small game projects between repos. Every entry gets a call number, a shelf, and a card &mdash; the same care you'd give a real collection.</p>
       <p>Everything here runs in the browser, hosted straight from GitHub Pages. No installs, no accounts to start &mdash; just open a drawer and play.</p>
       <div class="stat-row">
-        <div class="stat"><span class="num">72</span><span class="cap">Titles Shelved</span></div>
+        <div class="stat"><span class="num">73</span><span class="cap">Titles Shelved</span></div>
         <div class="stat"><span class="num">100%</span><span class="cap">Free to Borrow</span></div>
         <div class="stat"><span class="num">&infin;</span><span class="cap">Renewals</span></div>
       </div>
@@ -1860,6 +1905,7 @@
     'solar-smash.html':'planet space destruction weapons earth',
     'indian-truck-simulator.html':'truck driving india lorry cargo',
     'spot-the-alien.html':'detective find hidden ufo',
+    'osu.html':'osu circles clicking mania taiko beatmap aim',
     'undertale.html':'ut toby fox rpg sans papyrus frisk bullet hell'
   };
   function norm(s){ return String(s).toLowerCase().replace(/[\u2019'`]/g,'').replace(/&/g,' and ').replace(/[^a-z0-9]+/g,' ').trim(); }
@@ -2050,6 +2096,45 @@
     }
   })();
 
+  /* ---- custom cursor: trailing ring + click ripples ---- */
+  (function(){
+    var fine = !!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches);
+    if(!fine || reduceMotion) return;   // the tan & black cursor itself is pure CSS and always on
+    var LINK='a,button,[role="button"],.drawer,.chip,label', TEXT='input,textarea';
+    var ring=document.createElement('div');
+    ring.className='cursor-ring'; ring.setAttribute('aria-hidden','true');
+    ring.appendChild(document.createElement('i'));
+    document.body.appendChild(ring);
+
+    var x=-100, y=-100, rx=-100, ry=-100, raf=0, seen=false;
+    function loop(){
+      rx+=(x-rx)*0.2; ry+=(y-ry)*0.2;
+      ring.style.transform='translate3d('+rx+'px,'+ry+'px,0)';
+      if(Math.abs(x-rx)>0.1 || Math.abs(y-ry)>0.1){ raf=requestAnimationFrame(loop); } else { raf=0; }
+    }
+    document.addEventListener('pointermove', function(e){
+      if(e.pointerType && e.pointerType!=='mouse') return;
+      x=e.clientX; y=e.clientY;
+      if(!seen){ seen=true; rx=x; ry=y; }
+      var t=e.target;
+      ring.classList.add('on');
+      ring.classList.toggle('is-link', !!(t.closest && t.closest(LINK)));
+      ring.classList.toggle('is-text', !!(t.closest && t.closest(TEXT)));
+      if(!raf) raf=requestAnimationFrame(loop);
+    }, {passive:true});
+    document.addEventListener('pointerdown', function(e){
+      if(e.pointerType && e.pointerType!=='mouse') return;
+      ring.classList.add('is-down');
+      if(e.button!==0) return;
+      var r=document.createElement('div');
+      r.className='cursor-ripple'; r.style.left=e.clientX+'px'; r.style.top=e.clientY+'px';
+      r.addEventListener('animationend', function(){ if(r.parentNode) r.parentNode.removeChild(r); });
+      document.body.appendChild(r);
+    });
+    document.addEventListener('pointerup', function(){ ring.classList.remove('is-down'); });
+    document.addEventListener('mouseout', function(e){ if(!e.relatedTarget){ ring.classList.remove('on'); } });
+  })();
+
   /* ---- tab swap: change title + favicon while the tab is in the background ---- */
   (function(){
     var AWAY_TITLE='Home';
@@ -2081,7 +2166,7 @@
     var btn=$('#stampBtn'), card=$('#libCard'), follow=$('#followLink');
     btn.addEventListener('click', function(){
       card.classList.add('stamped');
-      btn.textContent='Card Issued'; btn.disabled=true; btn.style.opacity='0.6'; btn.style.cursor='default';
+      btn.textContent='Card Issued'; btn.disabled=true; btn.style.opacity='0.6';
       if(follow) follow.hidden=false;
     });
   })();
