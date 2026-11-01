@@ -692,7 +692,7 @@
   button:disabled, .card-btn:disabled, .player input[type="range"]:disabled{ cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f1dcb6'/%3E%3Cstop offset='1' stop-color='%23c39d68'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M4 2V24L9.2 19.2L12.8 27.4L16.6 25.7L13 17.6H20.4Z' transform='translate(1.6 1.8)' fill='%23000' opacity='.28'/%3E%3Cpath d='M4 2V24L9.2 19.2L12.8 27.4L16.6 25.7L13 17.6H20.4Z' fill='url(%23g)' stroke='%23111' stroke-width='1.8' stroke-linejoin='round'/%3E%3Cpath d='M6.3 6.4V18.2' stroke='%23fff' stroke-opacity='.6' stroke-width='1.3' stroke-linecap='round'/%3E%3C/svg%3E") 4 2, default; }
   input[type="text"], input:not([type]), textarea, [contenteditable]{ cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23f1dcb6'/%3E%3Cstop offset='1' stop-color='%23c39d68'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M11 4.5h10M16 4.5v23M11 27.5h10' stroke='%23111' stroke-width='5' stroke-linecap='round' fill='none'/%3E%3Cpath d='M11 4.5h10M16 4.5v23M11 27.5h10' stroke='%23e6cfa4' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") 16 16, text; }
 
-  /* smooth trailing ring, link halo, diamond trail, click ripples (added by script) */
+  /* smooth trailing ring, link halo, diamond trail (added by script) */
   .cursor-ring{
     position:fixed; left:0; top:0; z-index:1000; width:0; height:0;
     pointer-events:none; opacity:0; transition: opacity .25s ease; will-change: transform;
@@ -718,13 +718,6 @@
     from{ opacity:.9; transform: rotate(45deg) scale(1); }
     to{ opacity:0; transform: translateY(10px) rotate(45deg) scale(.2); }
   }
-  .cursor-ripple{
-    position:fixed; z-index:999; width:20px; height:20px; margin:-10px 0 0 -10px; border-radius:50%;
-    border:2px solid #d2b48c; pointer-events:none;
-    box-shadow: 0 0 0 1px #111, inset 0 0 0 1px #111;
-    animation: cursorRipple .65s ease-out backwards forwards;
-  }
-  @keyframes cursorRipple{ from{ transform: scale(.3); opacity:.9; } to{ transform: scale(3.2); opacity:0; } }
 
   /* ---------- cloak button ---------- */
   .cloak-btn{
@@ -1086,7 +1079,7 @@
 
   <section class="catalog" id="stacks">
     <div class="section-head reveal">
-      <span class="eyebrow">Card Catalog &middot; 73 Titles</span>
+      <span class="eyebrow">Card Catalog &middot; 76 Titles</span>
       <h2>New Acquisitions</h2>
       <p>Every title in the collection, shelved by genre. Search above or filter by shelf, then hover or tap a drawer to pull out its index card.</p>
     </div>
@@ -1315,7 +1308,7 @@
       <div class="shelf-group-head reveal">
         <span class="code">100</span>
         <h3>Platformers &amp; Challenges</h3>
-        <span class="count">8 titles</span>
+        <span class="count">9 titles</span>
       </div>
       <div class="drawers">
 
@@ -1412,6 +1405,18 @@
             <span class="genre">Platformer / Action</span>
             <p>Leap across the roofs of a convoy of speeding trucks to reach the finish line &mdash; and don&rsquo;t touch the ground, because any truck can blow at any moment.</p>
             <a href="clustertruck.html" target="_blank" rel="noopener">Check it out &rarr;</a>
+          </div>
+        </div>
+
+        <div class="drawer reveal">
+          <div class="handle"></div>
+          <span class="label">Platformer &middot; Classic</span>
+          <h3>Sonic the Hedgehog 2</h3>
+          <p class="call-no">100.09 &middot; gotta go fast</p>
+          <div class="card-face">
+            <span class="genre">Platformer / Action</span>
+            <p>The 16-bit classic: race Sonic and Tails through loop-filled zones at breakneck speed, grabbing rings and taking on Dr. Robotnik.</p>
+            <a href="sonic-the-hedgehog-2.html" target="_blank" rel="noopener">Check it out &rarr;</a>
           </div>
         </div>
 
@@ -1744,7 +1749,7 @@
       <div class="shelf-group-head reveal">
         <span class="code">400</span>
         <h3>Action-Adventure</h3>
-        <span class="count">9 titles</span>
+        <span class="count">10 titles</span>
       </div>
       <div class="drawers">
 
@@ -1856,6 +1861,18 @@
           </div>
         </div>
 
+        <div class="drawer reveal">
+          <div class="handle"></div>
+          <span class="label">Adventure &middot; Shooter Platformer</span>
+          <h3>Zombotron</h3>
+          <p class="call-no">400.10 &middot; survive the station</p>
+          <div class="card-face">
+            <span class="genre">Action-Adventure</span>
+            <p>A side-scrolling shooter-platformer where you blast through zombie-infested areas, mixing gunplay, platforming, and small puzzles. Cartoon zombie violence.</p>
+            <a href="zombotron.html" target="_blank" rel="noopener">Check it out &rarr;</a>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -1863,7 +1880,7 @@
       <div class="shelf-group-head reveal">
         <span class="code">500</span>
         <h3>Simulation &amp; Sandbox</h3>
-        <span class="count">11 titles</span>
+        <span class="count">12 titles</span>
       </div>
       <div class="drawers">
 
@@ -1999,6 +2016,18 @@
           </div>
         </div>
 
+        <div class="drawer reveal">
+          <div class="handle"></div>
+          <span class="label">Simulation &middot; Ranching</span>
+          <h3>Slime Rancher</h3>
+          <p class="call-no">500.12 &middot; wrangle, feed, expand</p>
+          <div class="card-face">
+            <span class="genre">Simulation / Management</span>
+            <p>Run a ranch on a faraway planet: wrangle colorful slimes, keep them fed, and sell what they produce to grow your corrals and explore new areas.</p>
+            <a href="slime-rancher.html" target="_blank" rel="noopener">Check it out &rarr;</a>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -2070,7 +2099,7 @@
       <p>Unblocked Library started as a place to stop losing track of small game projects between repos. Every entry gets a call number, a shelf, and a card &mdash; the same care you'd give a real collection.</p>
       <p>Everything here runs in the browser, hosted straight from GitHub Pages. No installs, no accounts to start &mdash; just open a drawer and play.</p>
       <div class="stat-row">
-        <div class="stat"><span class="num">73</span><span class="cap">Titles Shelved</span></div>
+        <div class="stat"><span class="num">76</span><span class="cap">Titles Shelved</span></div>
         <div class="stat"><span class="num">100%</span><span class="cap">Free to Borrow</span></div>
         <div class="stat"><span class="num">&infin;</span><span class="cap">Renewals</span></div>
       </div>
@@ -2319,6 +2348,9 @@
     'solar-smash.html':'planet space destruction weapons earth',
     'indian-truck-simulator.html':'truck driving india lorry cargo',
     'spot-the-alien.html':'detective find hidden ufo',
+    'zombotron.html':'zombie zombies shooter platformer',
+    'sonic-the-hedgehog-2.html':'sonic sega genesis tails robotnik retro',
+    'slime-rancher.html':'slimes ranch farm plorts',
     'osu.html':'osu circles clicking mania taiko beatmap aim',
     'undertale.html':'ut toby fox rpg sans papyrus frisk bullet hell'
   };
@@ -2359,7 +2391,11 @@
 
   function matches(it, tokens, cq){
     if(!tokens.length) return true;
-    var ok=tokens.every(function(t){ return it.text.indexOf(' '+t)>-1; });
+    var ok=tokens.every(function(t){
+      var n=' '+t;
+      if(t.length<=2){ return it.text.indexOf(n+' ')>-1 || it.text.slice(-n.length)===n; }   // short tokens match whole words only
+      return it.text.indexOf(n)>-1;
+    });
     return ok || (cq.length>=6 && it.compact.indexOf(cq)>-1);
   }
 
@@ -2510,7 +2546,7 @@
     }
   })();
 
-  /* ---- custom cursor: smooth ring, link halo, diamond trail, click ripples ---- */
+  /* ---- custom cursor: smooth ring, link halo, diamond trail ---- */
   (function(){
     var fine = !!(window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches);
     if(!fine || reduceMotion) return;   // the tan & black cursor itself is pure CSS and always on
@@ -2527,15 +2563,15 @@
       ring.style.transform='translate3d('+rx+'px,'+ry+'px,0)';
       if(Math.abs(x-rx)>0.1 || Math.abs(y-ry)>0.1){ raf=requestAnimationFrame(loop); } else { raf=0; }
     }
-    function drop(el){ el.addEventListener('animationend', function(){ if(el.parentNode) el.parentNode.removeChild(el); }); }
     function trail(px,py){
       var dx=px-lx, dy=py-ly;
       if(trails>14 || dx*dx+dy*dy<1100) return;
       lx=px; ly=py; trails++;
       var t=document.createElement('i');
       t.className='cursor-trail'; t.style.left=px+'px'; t.style.top=py+'px';
-      t.addEventListener('animationend', function(){ trails--; if(t.parentNode) t.parentNode.removeChild(t); });
+      t.addEventListener('animationend', function(){ if(t.parentNode){ t.parentNode.removeChild(t); trails=Math.max(0,trails-1); } });
       document.body.appendChild(t);
+      setTimeout(function(){ if(t.parentNode){ t.parentNode.removeChild(t); trails=Math.max(0,trails-1); } }, 1200);
     }
     document.addEventListener('pointermove', function(e){
       if(e.pointerType && e.pointerType!=='mouse') return;
@@ -2551,12 +2587,6 @@
     document.addEventListener('pointerdown', function(e){
       if(e.pointerType && e.pointerType!=='mouse') return;
       ring.classList.add('is-down');
-      if(e.button!==0) return;
-      [0,120].forEach(function(delay){
-        var r=document.createElement('div');
-        r.className='cursor-ripple'; r.style.left=e.clientX+'px'; r.style.top=e.clientY+'px'; r.style.animationDelay=delay+'ms';
-        drop(r); document.body.appendChild(r);
-      });
     });
     document.addEventListener('pointerup', function(){ ring.classList.remove('is-down'); });
     document.addEventListener('mouseout', function(e){ if(!e.relatedTarget){ ring.classList.remove('on'); } });
